@@ -1,0 +1,57 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        /*
+         * Default Layer (0)
+         * 왼쪽 매트릭스(image_387063.png): 6행 x 8열 (Col 0~7)
+         * 오른쪽 매트릭스(image_386d92.png): 6행 x 11열 (Col 8~18)
+         */
+        default_layer {
+            bindings = <
+/* -------------------------- 물리적 1행 (Left Rows 0 / Right Rows 6) -------------------------- */
+&kp ESC   &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6   &none     &none &kp F7   &kp F8   &none    &kp F9   &kp F10  &kp F11  &kp F12  &kp PSCRN &kp SLCK &kp PAUSE_BREAK
+
+/* -------------------------- 물리적 2행 (Left Rows 1 / Right Rows 7) -------------------------- */
+&kp GRAVE &kp N1   &kp N2   &kp N3   &kp N4   &kp N5   &kp N6   &kp N7    &kp N7 &kp N8   &kp N9   &kp N0   &kp MINUS &kp EQUAL &none    &kp BSPC &kp INS   &kp HOME &kp PG_UP
+
+/* -------------------------- 물리적 3행 (Left Rows 2 / Right Rows 8) -------------------------- */
+&kp TAB   &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y    &none     &kp Y &kp U    &kp I    &kp O    &kp P    &kp LBKT &kp RBKT &kp BSLH &kp DEL   &kp END  &kp PG_DN
+
+/* -------------------------- 물리적 4행 (Left Rows 3 / Right Rows 9) -------------------------- */
+&kp CLCK  &kp A    &kp S    &kp D    &kp F    &kp G    &kp H    &none     &kp H &kp J    &kp K    &kp L    &kp SEMI &kp SQT  &none    &kp ENTER &none    &none    &none
+
+/* -------------------------- 물리적 5행 (Left Rows 4 / Right Rows 10) ------------------------- */
+&kp LSHFT &kp Z    &kp X    &kp C    &kp V    &kp B    &none    &none     &kp B &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &none    &kp RSHFT &none    &kp UP   &none
+
+/* -------------------------- 물리적 6행 (Left Rows 5 / Right Rows 11) ------------------------- */
+&kp LCTRL &kp LGUI &kp LALT &none    &kp SPACE &none   &none    &none     &kp SPACE &none &kp RALT &mo 1    &kp K_APP &kp RCTRL &kp LEFT &kp DOWN &kp RIGHT &none    &none
+            >;
+        };
+
+        /*
+         * Function Layer (1)
+         * 하드웨어 핀 제어 및 특수 기능을 위한 레이어입니다.
+         */
+        fn_layer {
+            bindings = <
+/* 1행 */
+&none     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR &none &none &none    &none &trans &trans &none &trans &trans &trans &trans &trans &trans &trans
+/* 2행 */
+&trans    &trans       &trans       &trans       &trans     &trans &trans &trans   &trans &trans &trans &trans &trans &trans &none &kp DEL &trans &trans &trans
+/* 3행 */
+&trans    &trans       &trans       &trans       &trans     &trans &trans &none    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+/* 4행 */
+&trans    &trans       &trans       &trans       &trans     &trans &trans &none    &trans &trans &trans &trans &trans &trans &none &trans &none &none &none
+/* 5행 */
+&trans    &trans       &trans       &trans       &trans     &trans &none &none     &trans &trans &trans &trans &trans &trans &none &trans &none &trans &none
+/* 6행 */
+&trans    &trans       &trans       &none        &trans     &none &none &none      &trans &none &trans &trans &trans &trans &kp PG_UP &kp PG_DN &kp END &none &none
+            >;
+        };
+    };
+};

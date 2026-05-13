@@ -1,0 +1,34 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+
+        row-gpios
+            = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 6
+            , <&gpio0 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 7
+            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 8
+            , <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 9
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 10
+            , <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> ; // Row 11
+
+        col-gpios
+            = <&gpio0 20 GPIO_ACTIVE_HIGH> // Col 8
+            , <&gpio0 19 GPIO_ACTIVE_HIGH> // Col 9
+            , <&gpio0 18 GPIO_ACTIVE_HIGH> // Col 10
+            , <&gpio0 17 GPIO_ACTIVE_HIGH> // Col 11
+            , <&gpio0 16 GPIO_ACTIVE_HIGH> // Col 12
+            , <&gpio0 15 GPIO_ACTIVE_HIGH> // Col 13
+            , <&gpio0 14 GPIO_ACTIVE_HIGH> // Col 14
+            , <&gpio0 13 GPIO_ACTIVE_HIGH> // Col 15
+            , <&gpio1 7  GPIO_ACTIVE_HIGH> // Col 16 (P1.07)
+            , <&gpio1 2  GPIO_ACTIVE_HIGH> // Col 17 (P1.02)
+            , <&gpio1 1  GPIO_ACTIVE_HIGH> ; // Col 18 (P1.01)
+    };
+};
